@@ -1,0 +1,14 @@
+{
+  "name": "netcorewebpacktest",
+  "version": "1.0.0",
+  "description": ".NET Core 2 with Webpack running before Razor on build.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dan Sherwood",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^2.5.3"
+  }
+}
