@@ -19,7 +19,7 @@ namespace Webpack
         /// <returns>The partial content.</returns>
         public static Task<IHtmlContent> WebpackScriptsAsync(this IHtmlHelper helper, string bundleName)
         {
-            return helper.PartialAsync("Assets/_Gen_" + bundleName + "_Scripts");
+            return helper.PartialAsync("Shared/Assets/_Gen_" + bundleName + "_Scripts");
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace Webpack
         /// <returns>The partial content.</returns>
         public static Task<IHtmlContent> WebpackStylesAsync(this IHtmlHelper helper, string bundleName)
         {
-            return helper.PartialAsync("Assets/_Gen_" + bundleName + "_Styles");
+            return helper.PartialAsync("Shared/Assets/_Gen_" + bundleName + "_Styles");
         }
 
         /// <summary>

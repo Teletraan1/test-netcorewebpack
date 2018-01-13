@@ -18,9 +18,6 @@
     <WebpackOutputs Include="wwwroot\css\**\*" />
     <WebpackOutputs Include="wwwroot\js\**\*" />
   </ItemGroup>
-  <ItemGroup>
-    <MvcRazorFilesToCompile Include="Views\**\*.cshtml" />
-  </ItemGroup>
   <ItemGroup Condition="'@(WebpackOutputs)' == ''">
     <!-- 
       MSBuild skips a target if the Outputs item group evaluates to empty.
@@ -35,7 +32,7 @@
   <Target Name="BuildClientAssets" BeforeTargets="BeforeBuild;MvcRazorPrecompile" Inputs="@(WebpackInputs)" Outputs="@(WebpackOutputs)">
     <Exec Command="node_modules\.bin\webpack --progress" />
     <ItemGroup>
-      <MvcRazorFilesToCompile Include="Views\Shared\Assets\*.cshtml" />
+      <MvcRazorFilesToCompile Include="Pages\Shared\Assets\*.cshtml" />
     </ItemGroup>
   </Target>
   <Target Name="PrecompileRazorViews" AfterTargets="Build;BuildClientAssets" DependsOnTargets="MvcRazorPrecompile" />

@@ -105,8 +105,8 @@ const config: webpack.Configuration = {
         new ExtractTextPlugin('css/[name].[contenthash].' + (isDevelopment ? 'dev' : 'min') + '.css'),
         ...bundles.filter(x => x.startsWith("page-")).map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_ScriptsTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_ScriptsTemplate.cshtml'),
                 chunks: ['polyfills', 'jquery', 'bootstrap', value, 'font-awesome'],
                 inject: false,
                 chunksSortMode: 'manual',
@@ -114,8 +114,8 @@ const config: webpack.Configuration = {
         }),
         ...bundles.filter(x => x.startsWith("page-")).map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_StylesTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_StylesTemplate.cshtml'),
                 chunks: ['polyfills', 'jquery', 'bootstrap', value, 'font-awesome'],
                 inject: false,
                 chunksSortMode: 'manual',
@@ -123,8 +123,8 @@ const config: webpack.Configuration = {
         }),
         ...bundles.filter(x => !x.startsWith("page-")).map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_ScriptsTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_ScriptsTemplate.cshtml'),
                 chunks: [value],
                 inject: false,
                 chunksSortMode: 'manual',
@@ -132,8 +132,8 @@ const config: webpack.Configuration = {
         }),
         ...bundles.filter(x => !x.startsWith("page-")).map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_StylesTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_StylesTemplate.cshtml'),
                 chunks: [value],
                 inject: false,
                 chunksSortMode: 'manual',
@@ -141,16 +141,16 @@ const config: webpack.Configuration = {
         }),
         ...['tinymce'].map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_ScriptsTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Scripts.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_ScriptsTemplate.cshtml'),
                 chunks: [value],
                 inject: false,
             })
         }),
         ...['tinymce'].map((value) => {
             return new HtmlWebpackPlugin({
-                filename: path.join(__dirname, '/Views/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
-                template: path.join(__dirname, '/Views/Shared/Assets/_StylesTemplate.cshtml'),
+                filename: path.join(__dirname, '/Pages/Shared/Assets/_Gen_' + value + '_Styles.cshtml'),
+                template: path.join(__dirname, '/Pages/Shared/Assets/_StylesTemplate.cshtml'),
                 chunks: [value],
                 inject: false,
             })
