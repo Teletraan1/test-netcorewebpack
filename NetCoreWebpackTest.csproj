@@ -29,6 +29,14 @@
     -->
     <WebpackOutputs Include="wwwroot\nonexistent.dat" />
   </ItemGroup>
+  <ItemGroup>
+    <WebpackInputs Remove="app\css\common.scss" />
+    <WebpackInputs Remove="app\css\typography.scss" />
+    <WebpackInputs Remove="app\css\_variables.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\" />
+  </ItemGroup>
   <Target Name="BuildClientAssets" BeforeTargets="BeforeBuild;MvcRazorPrecompile" Inputs="@(WebpackInputs)" Outputs="@(WebpackOutputs)">
     <Exec Command="node_modules\.bin\webpack --progress" />
     <ItemGroup>

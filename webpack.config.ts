@@ -80,9 +80,21 @@ const config: webpack.Configuration = {
             {
                 test: /\.css?$/,
                 exclude: excludeTinyMCEResources, // Prevent TinyMCE resources being processed twice (see above).
+                use: ExtractTextPlugin.extract({                    
+                        loader: 'css-loader',
+                        options: { minimize: !isDevelopment }
+                })
+            },
+            {
+                test: /\.scss?$/,
+                exclude: excludeTinyMCEResources, // Prevent TinyMCE resources being processed twice (see above).
                 use: ExtractTextPlugin.extract({
-                    loader: 'css-loader',
-                    options: { minimize: !isDevelopment },
+                    use: [{
+                        loader: 'css-loader',
+                        options: { minimize: !isDevelopment }
+                    }, {
+                        loader: "sass-loader"
+                    }]
                 })
             },
             {
